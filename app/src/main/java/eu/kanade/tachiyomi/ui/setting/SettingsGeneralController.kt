@@ -60,6 +60,12 @@ class SettingsGeneralController : SettingsController() {
         }
 
         switchPreference {
+            key = Keys.confirmExit
+            titleRes = R.string.pref_confirm_exit
+            defaultValue = false
+        }
+
+        switchPreference {
             key = Keys.automaticUpdates
             titleRes = R.string.check_for_updates
             summaryRes = R.string.auto_check_for_app_versions

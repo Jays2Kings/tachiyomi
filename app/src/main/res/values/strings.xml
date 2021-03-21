@@ -496,6 +496,7 @@
     <string name="system_default_all_blue">System default (All Blue)</string>
     <string name="language">Language</string>
     <string name="system_default">System default</string>
+    <string name="pref_confirm_exit">Confirm exit</string>
     <string name="date_format">Date format</string>
     <string name="check_for_updates">Check for updates</string>
     <string name="auto_check_for_app_versions">Automatically check for new app versions</string>
@@ -732,6 +733,7 @@
     <string name="close">Close</string>
     <string name="collasped">Collapsed</string>
     <string name="common">Common</string>
+    <string name="confirm_exit">Press back again to exit</string>
     <string name="cover_of_image">Cover of manga</string>
     <string name="create">Create</string>
     <string name="default_value">Default</string>

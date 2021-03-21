@@ -18,6 +18,7 @@ import android.view.ViewGroup
 import android.view.WindowInsets
 import android.view.WindowManager
 import android.webkit.WebView
+import android.widget.Toast
 import androidx.appcompat.graphics.drawable.DrawerArrowDrawable
 import androidx.core.content.ContextCompat
 import androidx.core.graphics.ColorUtils
@@ -96,6 +97,8 @@ open class MainActivity : BaseActivity(), DownloadServiceListener {
     private var snackBar: Snackbar? = null
     private var extraViewForUndo: View? = null
     private var canDismissSnackBar = false
+
+    private var isConfirmingExit: Boolean = false
 
     private var animationSet: AnimatorSet? = null
     private val downloadManager: DownloadManager by injectLazy()
@@ -515,9 +518,32 @@ open class MainActivity : BaseActivity(), DownloadServiceListener {
         if (if (router.backstackSize == 1) !(sheetController?.handleSheetBack() ?: false)
             else !router.handleBack()
         ) {
-            SecureActivityDelegate.locked = true
-            super.onBackPressed()
+            if (shouldHandleExitConfirmation()) {
+                // Exit confirmation (resets after 2 seconds)
+                launchUI { resetExitConfirmation() }
+            } else if (router.backstackSize == 1 || !router.handleBack()) {
+                // Regular back
+                SecureActivityDelegate.locked = true
+                super.onBackPressed()
+            }
         }
+    }
+
+    private suspend fun resetExitConfirmation() {
+        isConfirmingExit = true
+        val toast = Toast.makeText(this, R.string.confirm_exit, Toast.LENGTH_LONG)
+        toast.show()
+
+        delay(2000)
+
+        toast.cancel()
+        isConfirmingExit = false
+    }
+
+    private fun shouldHandleExitConfirmation(): Boolean {
+        return router.backstackSize == 1 &&
+                preferences.confirmExit() &&
+                !isConfirmingExit
     }
 
     private fun setRoot(controller: Controller, id: Int) {

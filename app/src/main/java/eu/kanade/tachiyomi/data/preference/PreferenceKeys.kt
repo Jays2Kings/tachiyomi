@@ -159,6 +159,8 @@ object PreferenceKeys {
 
     const val enableDoh = "enable_doh"
 
+    const val confirmExit = "pref_confirm_exit"
+
     fun trackUsername(syncId: Int) = "pref_mangasync_username_$syncId"
 
     fun trackPassword(syncId: Int) = "pref_mangasync_password_$syncId"
