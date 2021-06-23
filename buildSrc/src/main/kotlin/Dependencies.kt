@@ -96,9 +96,9 @@ object LegacyPluginClassPath {
 }
 
 object AndroidVersions {
-    const val compileSdk = 30
+    const val compileSdk = "android-S"
     const val minSdk = 23
-    const val targetSdk = 30
+    const val targetSdk = "S"
     const val versionCode = 74
     const val versionName = "1.0.17"
     const val ndk = "22.0.7026061"

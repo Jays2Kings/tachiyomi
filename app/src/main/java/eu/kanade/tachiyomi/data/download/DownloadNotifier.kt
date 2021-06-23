@@ -248,7 +248,7 @@ internal class DownloadNotifier(private val context: Context) {
                         context,
                         0,
                         customIntent,
-                        PendingIntent.FLAG_UPDATE_CURRENT
+                        PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
                     )
                 )
             } else {

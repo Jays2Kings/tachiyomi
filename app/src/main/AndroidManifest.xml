@@ -42,6 +42,7 @@
             android:name=".ui.main.MainActivity"
             android:windowSoftInputMode="adjustNothing"
             android:label="@string/app_short_name"
+            android:exported="true"
             android:theme="@style/Theme.Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -52,6 +53,7 @@
         <activity
             android:name=".ui.main.SearchActivity"
             android:theme="@style/Theme.Splash"
+            android:exported="true"
             android:label="@string/label_global_search">
             <intent-filter>
                 <action android:name="android.intent.action.SEARCH" />
@@ -71,6 +73,7 @@
             <meta-data android:name="android.app.searchable" android:resource="@xml/searchable"/>
         </activity>
         <activity android:name=".ui.reader.ReaderActivity"
+            android:exported="true"
             android:theme="@style/Theme.Splash">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
@@ -119,6 +122,7 @@
             android:theme="@style/FilePickerTheme" />
         <activity
             android:name=".ui.setting.track.MyAnimeListLoginActivity"
+            android:exported="true"
             android:label="MyAnimeList">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
@@ -133,6 +137,7 @@
         </activity>
         <activity
             android:name=".ui.setting.track.AnilistLoginActivity"
+            android:exported="true"
             android:label="Anilist">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
@@ -147,6 +152,7 @@
         </activity>
         <activity
             android:name=".ui.setting.track.ShikimoriLoginActivity"
+            android:exported="true"
             android:label="Shikimori">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
@@ -161,6 +167,7 @@
         </activity>
         <activity
             android:name=".ui.setting.track.BangumiLoginActivity"
+            android:exported="true"
             android:label="Bangumi">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
@@ -178,13 +185,6 @@
             android:name=".extension.util.ExtensionInstallActivity"
             android:icon="@mipmap/ic_launcher"
             android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
-
-        <activity
-            android:name="com.google.android.gms.oss.licenses.OssLicensesMenuActivity"
-            android:theme="@style/Theme.OSS" />
-        <activity
-            android:name="com.google.android.gms.oss.licenses.OssLicensesActivity"
-            android:theme="@style/Theme.OSS" />
 
         <provider
             android:name="androidx.core.content.FileProvider"
